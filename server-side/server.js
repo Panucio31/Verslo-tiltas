@@ -8,6 +8,16 @@ userData.get('/users', (req, res) => {
   res.send('list of users')
 })
 
+userData.get('/addUser', (req, res)=> {
+  res.send('add new user')
+})
+
+userData.get('/userEdit', (req, res) => {
+  res.send('edit user here')
+})
+
+
+
 userData.use(cors())
 
 userData.listen(PORT, ()=> console.log('running on port 5000'));
