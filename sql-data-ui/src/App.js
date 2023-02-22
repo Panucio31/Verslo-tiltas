@@ -1,5 +1,6 @@
 import './App.css';
-import './Styles/LoginStyle.css'
+import './Styles/LoginStyle.css';
+import './Styles/DataPage.css'
 import LogIn from './Components/LogIn/LogIn';
 
 function App() {

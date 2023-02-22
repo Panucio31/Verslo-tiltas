@@ -7,12 +7,22 @@ function LogIn() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   
-  const database = [
+  const dataBase = [
     {
-      username: "ilgas@tiltas.lt",
+      userName: "ilgas@tiltas.lt",
       password: "pass1"
     },
   ];
+
+  const users = [
+    {
+      userName: "Mantas",
+      lastName: "Januska",
+      contract: 1254963,
+      id: 1,
+      status: true
+    }
+  ]
 
   const errors = {
     uname: "Neteisingas vartotojo vardas",
@@ -24,7 +34,7 @@ function LogIn() {
 
     let { uname, pass } = document.forms[0];
 
-    const userData = database.find((user) => user.username === uname.value);
+    const userData = dataBase.find((user) => user.userName === uname.value);
 
     
     if (userData) {
@@ -44,7 +54,7 @@ function LogIn() {
     );
 
   const renderForm = (
-    <div className="form">
+    <div className="login-form">
       <div className="title">Sign In</div>
       <form onSubmit={handleSubmit}>
         <div className="input-container">
@@ -66,8 +76,8 @@ function LogIn() {
 
   return (
     <div className="app">
-      <div className="login-form">
-        {isSubmitted ? <UserData/> : renderForm}
+      <div className="main-ui-container">
+        {isSubmitted ? <UserData data={users}/> : renderForm}
       </div>
     </div>
   );

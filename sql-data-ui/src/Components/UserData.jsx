@@ -1,39 +1,44 @@
-function UserData() {
+function UserData({ data }) {
+  console.log(data);
 
   const inputValue = (e) => {
     const searchInput = e.target.value;
     return searchInput;
+  };
 
-  }
-
-  const findUser = () => {
-    
-  }
+  const findUser = () => {};
 
   return (
-    <div className="main-ui-container">
+    <div className="data-container">
       <div className="search-field">
         <label htmlFor="search">Surasti Vartotoją</label>
-        <input type="text" name="search" onChange={(e) => inputValue(e)}/>
-        <button className="find-user" onClick={findUser}>Ieškoti</button>
+        <input type="text" name="search" onChange={(e) => inputValue(e)} />
+        <button className="find-user" onClick={findUser}>
+          Ieškoti
+        </button>
       </div>
-      
-        <tbody className="user-table">
+      <table className="user-table">
+        <tbody>
           <tr>
-            <th>vardas</th>
-            <th>pavarde</th>
-            <th>sutarties numeris</th>
-            <th>busena</th>
+            <th>Vardas</th>
+            <th>Pavarde</th>
+            <th>Sutarties numeris</th>
+            <th>Būsena</th>
           </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+          <hr />
+            {data.map((user) =>
+            <tr className="user-row" key={user.id}>
+              <td>{user.userName}</td>
+              <td>{user.lastName}</td>
+              <td>{user.contract}</td>
+              
+            </tr>
+            
+            )}
+            <hr/>
         </tbody>
+      </table>
     </div>
-      
   );
 }
 
