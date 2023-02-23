@@ -30,12 +30,12 @@
   cursor: pointer;
   font-size: 15px;
   border: 1px solid #01d28e;
-  color: #fff;
+  color: #2e2929;
   padding: 10px 20px;
 }
 
 .search-field input:hover {
-  border: 3px solid #01d28e;
+  border: 1px solid #078f61;
 }
 
 .search-field button {
@@ -50,7 +50,7 @@
 
 .search-field button:hover{
   background: #16a173;
-  border: 3px solid #01d28e;
+  border: 1px solid #01d28e;
 }
 
 
@@ -59,14 +59,16 @@
   width: 100%;
   margin: 40px 0px;
   align-items: center;
+  border-bottom: 2px #16a173;
 }
 
 table tr{
   color: #fff;
   align-items: center;
-  border-bottom: #fff;
+  border-bottom: 2px #fff;
 }
 
 .user-row td{
   margin: 10px 0;
+  border-bottom: 2px #fff;
 }

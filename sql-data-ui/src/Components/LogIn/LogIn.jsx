@@ -21,9 +21,23 @@ function LogIn() {
       contract: 1254963,
       id: 1,
       status: true
+    },
+    {
+      userName: "Algis",
+      lastName: "Kubilius",
+      contract: 36598775,
+      id: 2,
+      status: true
+    },
+    {
+      userName: "Darius",
+      lastName: "Januska",
+      contract: 2364852,
+      id: 3,
+      status: true
     }
   ]
-
+console.log(typeof dataBase)
   const errors = {
     uname: "Neteisingas vartotojo vardas",
     pass: "Neteisingas slaptažodis"
