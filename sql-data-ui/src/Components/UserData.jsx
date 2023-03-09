@@ -25,10 +25,12 @@ function UserData({ data }) {
   };
 
   const checkboxValues = () => {
-    let state = document.querySelector('filter-box-state');
-    console.log(state)
+    let lineNr = document.querySelector('#line-nr').checked;
+    let state = document.querySelector('#state').checked;
+    let date = document.querySelector('#date').value;
+    
+    
   }
-
 
   // const findUser = () => {
   //   const searchData = inputValue();
@@ -58,16 +60,15 @@ function UserData({ data }) {
       </div>
       <div className="filter">
         <div className="filter-box">
-          <label htmlFor="checkbox">Linijos Nr.</label>
-          <input type="checkbox" onClick={checkboxValues()}/>
+          <label htmlFor="checkbox">Linijos Nr.<input type="checkbox" name="Linijos Nr" id="line-nr" onClick={checkboxValues} value='Linijos Nr.'/></label>
         </div>
-        <div className="filter-box-state">
-          <label htmlFor="checkbox">Būsena</label>
-          <input type="checkbox" />
+        <div className="filter-box">
+          <label htmlFor="checkbox">Būsena<input type="checkbox" id="state" value='Būsena' onClick={checkboxValues}/></label>
+          
         </div>
-        <div className="filter-box-date">
-          <label htmlFor="checkbox">Aktyvavimo Data</label>
-          <input type="date" />
+        <div className="filter-box">
+          <label htmlFor="checkbox">Aktyvavimo Data<input type="date" id='date' onChange={checkboxValues}/></label>
+          
         </div>
       </div>
       <table className="user-table">

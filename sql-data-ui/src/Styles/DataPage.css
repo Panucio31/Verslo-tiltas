@@ -72,3 +72,10 @@ table tr{
   margin: 10px 0;
   border-bottom: 2px #fff;
 }
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  color: #fff
+}
