@@ -20,21 +20,24 @@ function LogIn() {
       lastName: "Januska",
       contract: 1254963,
       id: 1,
-      status: true
+      status: true,
+      lineSpeed: '60'
     },
     {
       userName: "Algis",
       lastName: "Kubilius",
       contract: 36598775,
       id: 2,
-      status: true
+      status: true,
+      lineSpeed: '100'
     },
     {
       userName: "Darius",
       lastName: "Januska",
       contract: 2364852,
       id: 3,
-      status: true
+      status: true,
+      lineSpeed: '300'
     }
   ]
 console.log(typeof dataBase)

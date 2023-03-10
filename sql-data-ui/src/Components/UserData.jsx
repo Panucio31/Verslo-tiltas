@@ -24,13 +24,18 @@ function UserData({ data }) {
     console.log(userData.length);
   };
 
-  const checkboxValues = () => {
-    let lineNr = document.querySelector('#line-nr').checked;
-    let state = document.querySelector('#state').checked;
-    let date = document.querySelector('#date').value;
-    
-    
-  }
+  const checkboxValuesSpeed60 = () => {
+    let lineSpeed = document.querySelector("#line-speed-60").checked;
+      if (lineSpeed === true){
+        const target = data.find((user) => user.lineSpeed === '60');
+        setUserData([...userData, target]);
+        
+      }
+      setUserData(data)
+      
+    console.log(lineSpeed);
+  };
+  
 
   // const findUser = () => {
   //   const searchData = inputValue();
@@ -59,17 +64,54 @@ function UserData({ data }) {
         <LastUserAdded />
       </div>
       <div className="filter">
-        <div className="filter-box">
-          <label htmlFor="checkbox">Linijos Nr.<input type="checkbox" name="Linijos Nr" id="line-nr" onClick={checkboxValues} value='Linijos Nr.'/></label>
+        <div className="filter-box-speed">
+          <input
+            type="checkbox"
+            name="60Mb"
+            id="line-speed-60"
+            onChange={checkboxValuesSpeed60}
+            value='60'
+          />
+          <label htmlFor="60Mb">60Mb</label>
+          <input
+            type="checkbox"
+            name="greitis"
+            id="line-speed-100"
+            onClick={console.log(100)}
+            value='100'
+          />
+          <label htmlFor="100Mb">100Mb</label>
+          <input
+            type="checkbox"
+            name="greitis"
+            id="line-speed-300"
+            onClick={console.log(300)}
+            value='300'
+          />
+          <label htmlFor="300Mb">300Mb</label>
+        </div>
+        {/* <div className="filter-box">
+          <label htmlFor="state">
+            Būsena
+            <input
+              type="checkbox"
+              id="state"
+              value="Būsena"
+              onClick={checkboxValues}
+            />
+          </label>
         </div>
         <div className="filter-box">
-          <label htmlFor="checkbox">Būsena<input type="checkbox" id="state" value='Būsena' onClick={checkboxValues}/></label>
-          
-        </div>
-        <div className="filter-box">
-          <label htmlFor="checkbox">Aktyvavimo Data<input type="date" id='date' onChange={checkboxValues}/></label>
-          
-        </div>
+          <label htmlFor="date">
+            Aktyvavimo Data
+            <input
+              type="date"
+              name="date"
+              id="date"
+              onChange={checkboxValues}
+            />
+          </label>
+        </div> */}
       </div>
       <table className="user-table">
         <tbody>
