@@ -26,16 +26,25 @@ function UserData({ data }) {
 
   const checkboxValuesSpeed60 = () => {
     let lineSpeed = document.querySelector("#line-speed-60").checked;
-      if (lineSpeed === true){
-        const target = data.find((user) => user.lineSpeed === '60');
-        setUserData([...userData, target]);
-        
-      }
-      setUserData(data)
-      
-    console.log(lineSpeed);
+    let lineSpeed2 = document.querySelector("#line-speed-100").checked;
+    let lineSpeed3 = document.querySelector("#line-speed-300").checked;
+    if (lineSpeed === true) {
+      const target = data.find((user) => user.lineSpeed === "60");
+      setUserData([...userData, target]);
+    } else if (lineSpeed2 === true) {
+      const target = data.find((user) => user.lineSpeed === "100");
+      setUserData([...userData, target]);
+    } else {
+      setUserData([])
+    }
+    // else if (lineSpeed3 === true) {
+    //   const target = data.find((user) => user.lineSpeed === "300");
+    //   setUserData([...userData, target]);
+    // } else if (lineSpeed && lineSpeed2 && lineSpeed3 === false){
+    //   setUserData([])
+    // }
+    // return;
   };
-  
 
   // const findUser = () => {
   //   const searchData = inputValue();
@@ -64,54 +73,60 @@ function UserData({ data }) {
         <LastUserAdded />
       </div>
       <div className="filter">
+        <h3>Filtruoti</h3>
         <div className="filter-box-speed">
-          <input
-            type="checkbox"
-            name="60Mb"
-            id="line-speed-60"
-            onChange={checkboxValuesSpeed60}
-            value='60'
-          />
-          <label htmlFor="60Mb">60Mb</label>
-          <input
-            type="checkbox"
-            name="greitis"
-            id="line-speed-100"
-            onClick={console.log(100)}
-            value='100'
-          />
-          <label htmlFor="100Mb">100Mb</label>
-          <input
-            type="checkbox"
-            name="greitis"
-            id="line-speed-300"
-            onClick={console.log(300)}
-            value='300'
-          />
-          <label htmlFor="300Mb">300Mb</label>
-        </div>
-        {/* <div className="filter-box">
-          <label htmlFor="state">
-            Būsena
+          <label htmlFor="60Mb">
+            60Mb
             <input
               type="checkbox"
-              id="state"
-              value="Būsena"
-              onClick={checkboxValues}
+              name="60Mb"
+              id="line-speed-60"
+              onChange={checkboxValuesSpeed60}
+              value="60"
+            />
+          </label>
+          <label htmlFor="100Mb">
+            100Mb
+            <input
+              type="checkbox"
+              name="100Mb"
+              id="line-speed-100"
+              onClick={checkboxValuesSpeed60}
+              value="100"
+            />
+          </label>
+          <label htmlFor="300Mb">
+            300Mb
+            <input
+              type="checkbox"
+              name="300Mb"
+              id="line-speed-300"
+              onClick={checkboxValuesSpeed60}
+              value="300"
             />
           </label>
         </div>
-        <div className="filter-box">
-          <label htmlFor="date">
-            Aktyvavimo Data
+        <div className="filter-box-state">
+          <label htmlFor="state-active">
+            Aktyvus
             <input
-              type="date"
-              name="date"
-              id="date"
-              onChange={checkboxValues}
+              type="checkbox"
+              id="active"
+              name="state-active"
+              //onClick={}
             />
           </label>
-        </div> */}
+
+          <label htmlFor="state-inactive">
+            Ne aktyvus
+            <input
+              type="checkbox"
+              id="inactive"
+              name="state-inactive"
+              onClick={console.log("aha")}
+            />
+          </label>
+        </div>
       </div>
       <table className="user-table">
         <tbody>

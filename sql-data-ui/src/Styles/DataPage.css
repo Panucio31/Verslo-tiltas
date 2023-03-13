@@ -75,7 +75,25 @@ table tr{
 
 .filter {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  border: 2px solid #01d28e;
+  padding: 10px;
+  justify-content: center;
   margin-top: 30px;
   color: #fff
+}
+
+.filter-box-speed {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #fff;
+  width: 20%;
+  justify-content:space-around;
+  align-items: center;
+  padding: 5px;
+}
+
+.filter-box-state{
+  display: flex;
+  flex-direction: column;
 }

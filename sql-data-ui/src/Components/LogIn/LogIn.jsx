@@ -40,7 +40,7 @@ function LogIn() {
       lineSpeed: '300'
     }
   ]
-console.log(typeof dataBase)
+
   const errors = {
     uname: "Neteisingas vartotojo vardas",
     pass: "Neteisingas slaptažodis"
