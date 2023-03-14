@@ -15,37 +15,67 @@ function UserData({ data }) {
     }
   };
 
-  console.log(contractNumber);
-
   const findUser = (e) => {
     e.preventDefault();
-    const targetUser = data.find((user) => user.contract === contractNumber);
+    const targetUser = data.filter((user) => user.contract === contractNumber);
     setUserData([...userData, targetUser]);
     console.log(userData.length);
   };
 
   const checkboxValuesSpeed60 = () => {
     let lineSpeed = document.querySelector("#line-speed-60").checked;
-    let lineSpeed2 = document.querySelector("#line-speed-100").checked;
-    let lineSpeed3 = document.querySelector("#line-speed-300").checked;
+    const target = data.filter((user) => user.lineSpeed === "60");
     if (lineSpeed === true) {
-      const target = data.find((user) => user.lineSpeed === "60");
-      setUserData([...userData, target]);
-    } else if (lineSpeed2 === true) {
-      const target = data.find((user) => user.lineSpeed === "100");
-      setUserData([...userData, target]);
-    } else {
-      setUserData([])
+      setUserData(...userData, target);
+    } else if (lineSpeed === false) {
+      if (userData.length === 0) {
+        return;
+      } else if (userData.length !== 0) {
+        setUserData(userData.splice(target.length, target.length))
+      }
     }
-    // else if (lineSpeed3 === true) {
-    //   const target = data.find((user) => user.lineSpeed === "300");
-    //   setUserData([...userData, target]);
-    // } else if (lineSpeed && lineSpeed2 && lineSpeed3 === false){
-    //   setUserData([])
-    // }
-    // return;
   };
 
+  const checkValuesSpeed100 = () => {
+    let lineSpeed2 = document.querySelector("#line-speed-100").checked;
+    const target = data.filter((user) => user.lineSpeed === "100");
+    if (lineSpeed2 === true) {
+      setUserData(...userData, target);
+    } else if (lineSpeed2 === false){
+      if (userData.length === 0) {
+        return;
+      } else if (userData.length !== 0) {
+        setUserData(userData.splice(target.length, target.length))
+      }
+    }
+  };
+
+  const checkValuesSpeed300 = () => {
+    let lineSpeed3 = document.querySelector("#line-speed-300").checked;
+    const target = data.filter((user) => user.lineSpeed === "300");
+    if (lineSpeed3 === true) {
+      setUserData(...userData, target);
+    } else if (lineSpeed3 === false){
+      if (userData.length === 0) {
+        return;
+      } else if (userData.length !== 0) {
+        setUserData(userData.splice(target.length, target.length))
+      }
+    }
+  };
+
+  const filterActiveUsers = () => {
+    const activeUserValue = document.querySelector('#active').checked;
+    const inactiveUserValue = document.querySelector('#inactive').checked;
+    const filteredActive = data.filter((user) => user.status === true);
+    if (activeUserValue === true){
+      setUserData(...userData, filteredActive)
+    }
+    console.log(filteredActive)
+    console.log(inactiveUserValue)
+  }
+  console.log(userData);
+  console.log(data);
   // const findUser = () => {
   //   const searchData = inputValue();
   //   console.log(searchData)
@@ -91,7 +121,7 @@ function UserData({ data }) {
               type="checkbox"
               name="100Mb"
               id="line-speed-100"
-              onClick={checkboxValuesSpeed60}
+              onClick={checkValuesSpeed100}
               value="100"
             />
           </label>
@@ -101,7 +131,7 @@ function UserData({ data }) {
               type="checkbox"
               name="300Mb"
               id="line-speed-300"
-              onClick={checkboxValuesSpeed60}
+              onClick={checkValuesSpeed300}
               value="300"
             />
           </label>
@@ -113,7 +143,7 @@ function UserData({ data }) {
               type="checkbox"
               id="active"
               name="state-active"
-              //onClick={}
+              onClick={filterActiveUsers}
             />
           </label>
 
@@ -123,7 +153,7 @@ function UserData({ data }) {
               type="checkbox"
               id="inactive"
               name="state-inactive"
-              onClick={console.log("aha")}
+              onClick={filterActiveUsers}
             />
           </label>
         </div>

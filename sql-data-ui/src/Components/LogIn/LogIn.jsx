@@ -28,7 +28,7 @@ function LogIn() {
       lastName: "Kubilius",
       contract: 36598775,
       id: 2,
-      status: true,
+      status: false,
       lineSpeed: '100'
     },
     {
@@ -36,6 +36,30 @@ function LogIn() {
       lastName: "Januska",
       contract: 2364852,
       id: 3,
+      status: true,
+      lineSpeed: '300'
+    },
+    {
+      userName: "jonas",
+      lastName: "belekas",
+      contract: 1254963,
+      id: 4,
+      status: true,
+      lineSpeed: '60'
+    },
+    {
+      userName: "tadas",
+      lastName: "belekoks",
+      contract: 36598775,
+      id: 5,
+      status: false,
+      lineSpeed: '100'
+    },
+    {
+      userName: "meska",
+      lastName: "Januska",
+      contract: 2364852,
+      id: 6,
       status: true,
       lineSpeed: '300'
     }
